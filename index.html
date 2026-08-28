@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEF TECH Premium Links</title>
+
+  <title>JEF TECH | Links</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
+    html {
+      min-height: 100%;
+      background: #000;
+    }
+
     body {
-      background: radial-gradient(circle at top left, #111827, #000000 60%);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.16), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.16), transparent 35%),
+        #000;
     }
 
     .floating-bg {
@@ -15,93 +27,368 @@
     }
 
     @keyframes float {
-      0%,100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .shine::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.14),
+        transparent
+      );
+      transform: skewX(-20deg);
+      transition: left 0.7s ease;
     }
 
     .shine:hover::before {
-      left: 100%;
+      left: 150%;
     }
   </style>
 </head>
-<body class="min-h-screen text-white overflow-hidden relative">
 
-    <!-- background premium -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="floating-bg absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl top-10 left-10"></div>
-        <div class="floating-bg absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl bottom-10 right-10"></div>
+<body class="text-white relative overflow-x-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+
+    <div
+      class="floating-bg absolute
+             w-72 h-72 md:w-96 md:h-96
+             bg-purple-500/10
+             rounded-full blur-3xl
+             top-0 left-0">
     </div>
 
-    <main class="relative z-10 min-h-screen flex items-center justify-center px-4 py-10">
-        
-        <div class="w-50 max-w-lg text-center">
+    <div
+      class="floating-bg absolute
+             w-72 h-72 md:w-96 md:h-96
+             bg-blue-500/10
+             rounded-full blur-3xl
+             bottom-0 right-0">
+    </div>
 
-            <!-- profile -->
-            <div class="mb-10">
-                <img 
-                    src="jef-tech-logo.png"
-                    alt="avatar"
-                    class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto object-cover border-4 border-white shadow-lg hover:rotate-6 hover:scale-110 transition duration-500 animate-growth"
+  </div>
 
-                >
 
-                <h1 class="text-2xl md:text-5xl font-bold mt-6 tracking-tight">
-CONSTRUIMOS TECNOLOGIA                </h1>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main
+    class="relative z-10
+           min-h-screen
+           flex items-center justify-center
+           px-5 py-10 md:px-10 lg:px-16"
+  >
 
-            
+    <!--
+      CELULAR:
+      Una sola columna tipo Linktree.
+
+      PC:
+      Dos columnas.
+    -->
+
+    <div
+      class="w-full max-w-5xl
+             grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr]
+             gap-10 lg:gap-20
+             items-center"
+    >
+
+
+      <!-- ================================= -->
+      <!-- PERFIL / FOTO -->
+      <!-- ================================= -->
+
+      <section
+        class="text-center md:text-left"
+      >
+
+        <img
+          src="jef-tech-logo.png"
+          alt="JEF TECH"
+          class="w-28 h-28
+                 sm:w-32 sm:h-32
+                 md:w-56 md:h-56
+                 lg:w-64 lg:h-64
+                 rounded-full
+                 mx-auto md:mx-0
+                 object-cover
+                 border-4 border-white/90
+                 shadow-2xl
+                 hover:scale-105
+                 hover:rotate-3
+                 transition duration-500"
+        >
+
+
+        <h1
+          class="text-2xl
+                 sm:text-3xl
+                 md:text-4xl
+                 lg:text-5xl
+                 font-bold
+                 tracking-tight
+                 mt-6"
+        >
+          CONSTRUIMOS
+          <br class="hidden md:block">
+          TECNOLOGÍA
+        </h1>
+
+
+        <p
+          class="text-gray-400
+                 mt-3
+                 text-sm
+                 md:text-base"
+        >
+          JEF TECH
+        </p>
+
+
+        <!-- Desktop -->
+        <div
+          class="hidden md:block
+                 w-20 h-1
+                 bg-gradient-to-r
+                 from-purple-500
+                 to-blue-500
+                 rounded-full
+                 mt-6"
+        ></div>
+
+      </section>
+
+
+
+      <!-- ================================= -->
+      <!-- LINKS -->
+      <!-- ================================= -->
+
+      <section class="w-full">
+
+        <div class="space-y-4 md:space-y-5">
+
+
+          <!-- GITHUB -->
+          <a
+            href="https://github.com/jefrete"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shine relative overflow-hidden
+                   block
+                   w-full
+                   bg-white/5
+                   backdrop-blur-xl
+                   border border-white/10
+                   p-5
+                   rounded-2xl
+                   hover:border-purple-400
+                   hover:bg-purple-500/10
+                   hover:scale-[1.02]
+                   transition duration-300
+                   shadow-xl"
+          >
+            <div class="flex items-center justify-between">
+
+              <span class="text-lg font-semibold">
+                GitHub
+              </span>
+
+              <span class="text-gray-500">
+                →
+              </span>
+
             </div>
+          </a>
 
-            <!-- premium links -->
-            <div class="space-y-5">
 
-                <a href="https://github.com/jefrete"
-                   class="shine relative overflow-hidden block bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl hover:border-purple-400 hover:scale-105 transition duration-500">
-                   <span class="text-lg font-semibold">GitHub</span>
-                </a>
+          <!-- PORTFOLIO -->
+          <a
+            href="https://intro-jef-tech.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shine relative overflow-hidden
+                   block
+                   w-full
+                   bg-white/5
+                   backdrop-blur-xl
+                   border border-white/10
+                   p-5
+                   rounded-2xl
+                   hover:border-blue-400
+                   hover:bg-blue-500/10
+                   hover:scale-[1.02]
+                   transition duration-300
+                   shadow-xl"
+          >
+            <div class="flex items-center justify-between">
 
-                <a href="https://intro-jef-tech.vercel.app/"
-                   class="shine relative overflow-hidden block bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl hover:border-blue-400 hover:scale-105 transition duration-500">
-                   <span class="text-lg font-semibold">Portfolio</span>
-                </a>
+              <span class="text-lg font-semibold">
+                Portfolio
+              </span>
 
-                <a href="https://www.linkedin.com/in/julianfreteiommi/"
-                   class="shine relative overflow-hidden block bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl hover:border-cyan-400 hover:scale-105 transition duration-500">
-                   <span class="text-lg font-semibold">LinkedIn</span>
-                </a>
-
-                <a href="https://argentina-deportes.vercel.app/"
-                   class="shine relative overflow-hidden block bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl hover:border-pink-400 hover:scale-105 transition duration-500">
-                   <span class="text-lg font-semibold">ARGENTINA DEPORTES</span>
-                </a>
-
-                <a href="mailto:contacto@jeftech.com"
-                   class="shine relative overflow-hidden block bg-gradient-to-r from-purple-600 to-blue-600 p-5 rounded-2xl hover:scale-105 transition duration-500 shadow-xl">
-                   <span class="text-lg font-semibold">Work With Me</span>
-                </a>
+              <span class="text-gray-500">
+                →
+              </span>
 
             </div>
+          </a>
 
-            <footer class="mt-10 text-gray-500 text-sm">
-                © 2026 JEF TECH
-            </footer>
+
+          <!-- LINKEDIN -->
+          <a
+            href="https://www.linkedin.com/in/julianfreteiommi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shine relative overflow-hidden
+                   block
+                   w-full
+                   bg-white/5
+                   backdrop-blur-xl
+                   border border-white/10
+                   p-5
+                   rounded-2xl
+                   hover:border-cyan-400
+                   hover:bg-cyan-500/10
+                   hover:scale-[1.02]
+                   transition duration-300
+                   shadow-xl"
+          >
+            <div class="flex items-center justify-between">
+
+              <span class="text-lg font-semibold">
+                LinkedIn
+              </span>
+
+              <span class="text-gray-500">
+                →
+              </span>
+
+            </div>
+          </a>
+
+
+          <!-- ARGENTINA DEPORTES -->
+          <a
+            href="https://argentina-deportes.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shine relative overflow-hidden
+                   block
+                   w-full
+                   bg-white/5
+                   backdrop-blur-xl
+                   border border-white/10
+                   p-5
+                   rounded-2xl
+                   hover:border-pink-400
+                   hover:bg-pink-500/10
+                   hover:scale-[1.02]
+                   transition duration-300
+                   shadow-xl"
+          >
+            <div class="flex items-center justify-between">
+
+              <span class="text-lg font-semibold">
+                ARGENTINA DEPORTES
+              </span>
+
+              <span class="text-gray-500">
+                →
+              </span>
+
+            </div>
+          </a>
+
+
+          <!-- CONTACTO -->
+          <a
+            href="mailto:contacto@jeftech.com"
+            class="shine relative overflow-hidden
+                   block
+                   w-full
+                   bg-gradient-to-r
+                   from-purple-600
+                   to-blue-600
+                   p-5
+                   rounded-2xl
+                   hover:scale-[1.02]
+                   transition duration-300
+                   shadow-2xl"
+          >
+            <div class="flex items-center justify-between">
+
+              <span class="text-lg font-semibold">
+                Work With Me
+              </span>
+
+              <span>
+                →
+              </span>
+
+            </div>
+          </a>
+
 
         </div>
-    </main>
 
-    <script>
-        const links = document.querySelectorAll('a');
 
-        links.forEach((link, index) => {
-            link.style.opacity = '0';
-            link.style.transform = 'translateY(40px)';
+        <!-- FOOTER -->
+        <footer
+          class="text-center
+                 md:text-left
+                 mt-8
+                 text-gray-500
+                 text-sm"
+        >
+          © 2026 JEF TECH
+        </footer>
 
-            setTimeout(() => {
-                link.style.transition = 'all 0.8s ease';
-                link.style.opacity = '1';
-                link.style.transform = 'translateY(0px)';
-            }, index * 180);
-        });
-    </script>
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ANIMACIÓN -->
+  <script>
+
+    const elements = document.querySelectorAll(
+      "section img, section h1, section p, section a"
+    );
+
+    elements.forEach((element, index) => {
+
+      element.style.opacity = "0";
+      element.style.transform = "translateY(25px)";
+
+      setTimeout(() => {
+
+        element.style.transition =
+          "opacity 0.6s ease, transform 0.6s ease";
+
+        element.style.opacity = "1";
+        element.style.transform = "translateY(0)";
+
+      }, index * 100);
+
+    });
+
+  </script>
 
 </body>
 </html>
