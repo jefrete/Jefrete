@@ -1,86 +1,565 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEF TECH Neon Links</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="min-h-screen bg-black text-white overflow-hidden relative">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JEF TECH — Developer, tecnología, programación y proyectos.">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:title" content="JEF TECH">
+    <meta property="og:description" content="Developer · Web · IA · Tecnología">
+    <meta property="og:type" content="website">
+    <title>JEF TECH — Links</title>
 
-    <!-- partículas fake -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
-        <div class="absolute w-72 h-72 bg-pink-500/20 rounded-full blur-3xl bottom-10 right-10 animate-bounce"></div>
-        <div class="absolute w-64 h-64 bg-purple-500/20 rounded-full blur-3xl top-1/2 left-1/2 animate-spin"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #07070b;
+            --text: #f4f4f5;
+            --muted: #a1a1aa;
+            --faint: #71717a;
+            --line: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.035);
+            --cyan: #67e8f9;
+            --violet: #a78bfa;
+            --radius: 18px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .background::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent 72%);
+        }
+
+        .background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(110px);
+            opacity: 0.28;
+            animation: drift 14s ease-in-out infinite;
+        }
+
+        .glow-one {
+            width: 380px;
+            height: 380px;
+            background: #22d3ee;
+            top: -160px;
+            left: -100px;
+        }
+
+        .glow-two {
+            width: 340px;
+            height: 340px;
+            background: #7c3aed;
+            right: -130px;
+            top: 32%;
+            animation-delay: -5s;
+        }
+
+        .glow-three {
+            width: 280px;
+            height: 280px;
+            background: #db2777;
+            left: 28%;
+            bottom: -160px;
+            animation-delay: -9s;
+        }
+
+        .page {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 52px 20px 72px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 32px;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 108px;
+            height: 108px;
+            margin: 0 auto 22px;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg, #22d3ee, #8b5cf6, #ec4899, #22d3ee);
+            filter: blur(12px);
+            opacity: 0.5;
+            animation: rotateGlow 10s linear infinite;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #67e8f9, #8b5cf6 50%, #f472b6);
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            background: #0b0b10;
+            border: 3px solid #07070b;
+        }
+
+        .status {
+            position: absolute;
+            right: 6px;
+            bottom: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            animation: pulse 2.4s ease-out infinite;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--cyan);
+        }
+
+        .brand {
+            margin: 0;
+            font-family: Syne, sans-serif;
+            font-size: clamp(2.4rem, 9vw, 3.35rem);
+            line-height: 0.92;
+            font-weight: 800;
+            letter-spacing: -0.045em;
+            background: linear-gradient(105deg, #fff 0%, #c4f4ff 42%, #c4b5fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        .subtitle strong {
+            color: #ececec;
+            font-weight: 600;
+        }
+
+        .chips {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .chip {
+            padding: 5px 11px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.03);
+            color: #d4d4d8;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .social {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--glass);
+            color: var(--muted);
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+            transition: transform 0.22s ease, color 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .social:hover,
+        .social:focus-visible {
+            transform: translateY(-3px);
+            color: #fff;
+            border-color: rgba(103, 232, 249, 0.45);
+            background: rgba(103, 232, 249, 0.08);
+            outline: none;
+        }
+
+        .links {
+            display: grid;
+            gap: 11px;
+        }
+
+        .link-card {
+            --accent: var(--cyan);
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 72px;
+            padding: 12px 16px 12px 18px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+            backdrop-filter: blur(18px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+            isolation: isolate;
+            opacity: 0;
+            animation: fadeUp 0.55s ease forwards;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .link-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            bottom: 14px;
+            width: 3px;
+            border-radius: 99px;
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        .link-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+            transform: translateX(-120%);
+            transition: transform 0.55s ease;
+            z-index: -1;
+        }
+
+        .link-card:hover::before,
+        .link-card:focus-visible::before {
+            transform: translateX(120%);
+        }
+
+        .link-card:hover,
+        .link-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+            box-shadow:
+                0 14px 36px rgba(0, 0, 0, 0.38),
+                0 0 24px color-mix(in srgb, var(--accent) 14%, transparent);
+            outline: none;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.08s; --accent: #a78bfa; }
+        .link-card:nth-child(2) { animation-delay: 0.15s; --accent: #e4e4e7; }
+        .link-card:nth-child(3) { animation-delay: 0.22s; --accent: #f472b6; }
+        .link-card:nth-child(4) { animation-delay: 0.29s; --accent: #f87171; }
+        .link-card:nth-child(5) { animation-delay: 0.36s; --accent: #67e8f9; }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            margin: 0 14px 0 6px;
+            border-radius: 12px;
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+            color: var(--accent);
+            font-size: 1.05rem;
+            transition: transform 0.22s ease;
+        }
+
+        .link-card:hover .icon {
+            transform: scale(1.06);
+        }
+
+        .link-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-title {
+            display: block;
+            font-size: 0.98rem;
+            font-weight: 650;
+            color: #fafafa;
+            letter-spacing: -0.02em;
+        }
+
+        .link-description {
+            display: block;
+            margin-top: 2px;
+            color: var(--faint);
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+
+        .arrow {
+            color: #3f3f46;
+            font-size: 0.78rem;
+            margin-left: 8px;
+            transition: transform 0.22s ease, color 0.22s ease;
+        }
+
+        .link-card:hover .arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        .featured {
+            border-color: rgba(167, 139, 250, 0.32);
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.14), rgba(34, 211, 238, 0.04));
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #ddd6fe;
+            background: rgba(139, 92, 246, 0.18);
+            border: 1px solid rgba(167, 139, 250, 0.28);
+        }
+
+        footer {
+            margin-top: 36px;
+            text-align: center;
+            color: #52525b;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            animation: fadeUp 0.7s ease 0.48s both;
+        }
+
+        .footer-line {
+            width: 48px;
+            height: 1px;
+            margin: 0 auto 14px;
+            background: linear-gradient(90deg, transparent, #3f3f46, transparent);
+        }
+
+        footer p { margin: 0; }
+
+        footer .credit {
+            margin-top: 6px;
+            color: #3f3f46;
+        }
+
+        @keyframes rotateGlow {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(18px, -22px) scale(1.06); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+            70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        @media (max-width: 480px) {
+            .page { padding: 36px 16px 48px; }
+            .avatar-wrapper { width: 92px; height: 92px; }
+            .brand { font-size: clamp(2.2rem, 13vw, 2.9rem); }
+            .badge { display: none; }
+            .link-card { min-height: 66px; padding: 10px 13px 10px 15px; }
+            .icon { width: 40px; height: 40px; margin-right: 11px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background" aria-hidden="true">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
     </div>
 
-    <main class="relative z-10 min-h-screen flex items-center justify-center px-4">
-        <div class="w-full max-w-md text-center">
+    <main class="page">
+        <div class="container">
+            <header class="profile">
+                <div class="avatar-wrapper">
+                    <div class="avatar-glow" aria-hidden="true"></div>
+                    <div class="avatar-ring">
+                        <img
+                            class="avatar"
+                            src="jef-tech-logo.png"
+                            alt="JEF TECH"
+                        >
+                    </div>
+                    <span class="status" title="Disponible" aria-label="Disponible"></span>
+                </div>
 
-            <!-- avatar -->
-            <div class="mb-8">
-                <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                    class="w-28 h-28 md:w-32 md:h-32 rounded-full mx-auto object-cover border-4 border-cyan-400 shadow-[0_0_30px_cyan] hover:scale-110 transition duration-500"
-                    alt="avatar"
-                >
-
-                <h1 class="text-4xl md:text-6xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 animate-pulse">
-                    JEF TECH
-                </h1>
-
-                <p class="text-gray-300 mt-3">
-                    Developer • Cyber Creator ⚡
+                <p class="eyebrow">Studio digital</p>
+                <h1 class="brand">JEF TECH</h1>
+                <p class="subtitle">
+                    <strong>Developer</strong> · productos web, IA y tecnología
                 </p>
-            </div>
 
-            <!-- links -->
-            <div class="space-y-5">
+                <div class="chips" aria-hidden="true">
+                    <span class="chip">Web</span>
+                    <span class="chip">IA</span>
+                    <span class="chip">Full stack</span>
+                </div>
 
-                <a href="https://github.com/jefrete"
-                   class="block border border-cyan-400 p-4 rounded-xl hover:bg-cyan-400 hover:text-black hover:scale-110 transition duration-300 shadow-[0_0_20px_cyan]">
-                   GitHub
+                <div class="socials">
+                    <a class="social" href="https://github.com/jefrete" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a class="social" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="social" href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a class="social" href="mailto:contacto@jeftech.com" aria-label="Contacto">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </header>
+
+            <section class="links" aria-label="Enlaces de JEF TECH">
+                <a href="https://intro-jef-tech.vercel.app/" target="_blank" rel="noopener noreferrer" class="link-card featured">
+                    <span class="badge">Principal</span>
+                    <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="link-text">
+                        <span class="link-title">Portfolio</span>
+                        <span class="link-description">Proyectos, servicios y experimentos</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://intro-jef-tech.vercel.app/"
-                   class="block border border-pink-400 p-4 rounded-xl hover:bg-pink-400 hover:text-black hover:scale-110 transition duration-300 shadow-[0_0_20px_pink]">
-                   Portfolio
+                <a href="https://github.com/jefrete" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <div class="icon"><i class="fa-brands fa-github"></i></div>
+                    <div class="link-text">
+                        <span class="link-title">GitHub</span>
+                        <span class="link-description">Código, repositorios y trabajo abierto</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://instagram.com"
-                   class="block border border-yellow-400 p-4 rounded-xl hover:bg-yellow-400 hover:text-black hover:rotate-2 transition duration-300 shadow-[0_0_20px_yellow]">
-                   Instagram
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="link-text">
+                        <span class="link-title">Instagram</span>
+                        <span class="link-description">Procesos, tecnología y detrás de escena</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://youtube.com"
-                   class="block border border-red-500 p-4 rounded-xl hover:bg-red-500 hover:text-white hover:scale-110 transition duration-300 shadow-[0_0_20px_red]">
-                   YouTube
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <div class="icon"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="link-text">
+                        <span class="link-title">YouTube</span>
+                        <span class="link-description">Tutoriales, programación y builds</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
                 </a>
 
-            </div>
+                <a href="mailto:contacto@jeftech.com" class="link-card">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="link-text">
+                        <span class="link-title">Contacto</span>
+                        <span class="link-description">Hablemos de un proyecto</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
+                </a>
+            </section>
 
-            <footer class="mt-10 text-sm text-gray-400 animate-pulse">
-                Neon Edition © 2026
+            <footer>
+                <div class="footer-line"></div>
+                <p>JEF TECH · Built with code &amp; curiosity</p>
+                <p class="credit">© 2026</p>
             </footer>
-
         </div>
     </main>
-
-    <script>
-        const buttons = document.querySelectorAll('a');
-
-        buttons.forEach((btn, index) => {
-            btn.style.opacity = '0';
-            btn.style.transform = 'translateX(-50px)';
-
-            setTimeout(() => {
-                btn.style.transition = 'all 0.8s ease';
-                btn.style.opacity = '1';
-                btn.style.transform = 'translateX(0px)';
-            }, index * 300);
-        });
-    </script>
-
 </body>
 </html>
